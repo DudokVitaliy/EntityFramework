@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirst", "CodeFirst\CodeFirst.csproj", "{6B8DF89D-C4A6-4CB6-8B60-8BF132E20B6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirstHW", "CodeFirstHW\CodeFirstHW.csproj", "{2176ED32-04BF-4D7F-B518-AB8B84BE2A84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B8DF89D-C4A6-4CB6-8B60-8BF132E20B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B8DF89D-C4A6-4CB6-8B60-8BF132E20B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B8DF89D-C4A6-4CB6-8B60-8BF132E20B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B8DF89D-C4A6-4CB6-8B60-8BF132E20B6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2176ED32-04BF-4D7F-B518-AB8B84BE2A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2176ED32-04BF-4D7F-B518-AB8B84BE2A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2176ED32-04BF-4D7F-B518-AB8B84BE2A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2176ED32-04BF-4D7F-B518-AB8B84BE2A84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CAB7E13-1F71-4E8F-90A9-90DE4251B06D}
+	EndGlobalSection
+EndGlobal
