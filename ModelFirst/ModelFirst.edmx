@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelFirst.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelFirstStoreContainer">
+    <EntitySet Name="books" EntityType="ModelFirst.Store.books" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="authors" EntityType="ModelFirst.Store.authors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="languages" EntityType="ModelFirst.Store.languages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="countries" EntityType="ModelFirst.Store.countries" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="authorbook" Association="ModelFirst.Store.authorbook">
+      <End Role="author" EntitySet="authors" />
+      <End Role="book" EntitySet="books" />
+    </AssociationSet>
+    <AssociationSet Name="languagebook" Association="ModelFirst.Store.languagebook">
+      <End Role="language" EntitySet="languages" />
+      <End Role="book" EntitySet="books" />
+    </AssociationSet>
+    <AssociationSet Name="countrylanguage" Association="ModelFirst.Store.countrylanguage">
+      <End Role="country" EntitySet="countries" />
+      <End Role="language" EntitySet="languages" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="books">
+    <Key>
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="book_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="book_name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="pages_count" Type="int" Nullable="false" />
+    <Property Name="author_author_id" Type="int" Nullable="false" />
+    <Property Name="language_language_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="authors">
+    <Key>
+      <PropertyRef Name="author_id" />
+    </Key>
+    <Property Name="author_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="author_name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="author_surname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="age" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="languages">
+    <Key>
+      <PropertyRef Name="language_id" />
+    </Key>
+    <Property Name="language_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="language_name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="country_countries_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="countries">
+    <Key>
+      <PropertyRef Name="countries_id" />
+    </Key>
+    <Property Name="countries_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="country_name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="authorbook">
+    <End Role="author" Type="ModelFirst.Store.authors" Multiplicity="1" />
+    <End Role="book" Type="ModelFirst.Store.books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="author">
+        <PropertyRef Name="author_id" />
+      </Principal>
+      <Dependent Role="book">
+        <PropertyRef Name="author_author_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="languagebook">
+    <End Role="language" Type="ModelFirst.Store.languages" Multiplicity="1" />
+    <End Role="book" Type="ModelFirst.Store.books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="language">
+        <PropertyRef Name="language_id" />
+      </Principal>
+      <Dependent Role="book">
+        <PropertyRef Name="language_language_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="countrylanguage">
+    <End Role="country" Type="ModelFirst.Store.countries" Multiplicity="1" />
+    <End Role="language" Type="ModelFirst.Store.languages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country">
+        <PropertyRef Name="countries_id" />
+      </Principal>
+      <Dependent Role="language">
+        <PropertyRef Name="country_countries_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelFirst" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelFirstContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="books" EntityType="ModelFirst.book" />
+          <EntitySet Name="authors" EntityType="ModelFirst.author" />
+          <EntitySet Name="languages" EntityType="ModelFirst.language" />
+          <EntitySet Name="countries" EntityType="ModelFirst.country" />
+          <AssociationSet Name="authorbook" Association="ModelFirst.authorbook">
+            <End Role="author" EntitySet="authors" />
+            <End Role="book" EntitySet="books" />
+          </AssociationSet>
+          <AssociationSet Name="languagebook" Association="ModelFirst.languagebook">
+            <End Role="language" EntitySet="languages" />
+            <End Role="book" EntitySet="books" />
+          </AssociationSet>
+          <AssociationSet Name="countrylanguage" Association="ModelFirst.countrylanguage">
+            <End Role="country" EntitySet="countries" />
+            <End Role="language" EntitySet="languages" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="book">
+          <Key>
+            <PropertyRef Name="book_id" />
+          </Key>
+          <Property Name="book_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="book_name" Type="String" Nullable="false" />
+          <Property Name="pages_count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="author" Relationship="ModelFirst.authorbook" FromRole="book" ToRole="author" />
+          <Property Name="author_author_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="language" Relationship="ModelFirst.languagebook" FromRole="book" ToRole="language" />
+          <Property Name="language_language_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="author">
+          <Key>
+            <PropertyRef Name="author_id" />
+          </Key>
+          <Property Name="author_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="author_name" Type="String" Nullable="false" />
+          <Property Name="author_surname" Type="String" Nullable="false" />
+          <Property Name="age" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="book" Relationship="ModelFirst.authorbook" FromRole="author" ToRole="book" />
+        </EntityType>
+        <EntityType Name="language">
+          <Key>
+            <PropertyRef Name="language_id" />
+          </Key>
+          <Property Name="language_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="language_name" Type="String" Nullable="false" />
+          <NavigationProperty Name="book" Relationship="ModelFirst.languagebook" FromRole="language" ToRole="book" />
+          <NavigationProperty Name="country" Relationship="ModelFirst.countrylanguage" FromRole="language" ToRole="country" />
+          <Property Name="country_countries_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="countries_id" />
+          </Key>
+          <Property Name="countries_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="country_name" Type="String" Nullable="false" />
+          <NavigationProperty Name="language" Relationship="ModelFirst.countrylanguage" FromRole="country" ToRole="language" />
+        </EntityType>
+        <Association Name="authorbook">
+          <End Type="ModelFirst.author" Role="author" Multiplicity="1" />
+          <End Type="ModelFirst.book" Role="book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="author">
+              <PropertyRef Name="author_id" />
+            </Principal>
+            <Dependent Role="book">
+              <PropertyRef Name="author_author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="languagebook">
+          <End Type="ModelFirst.language" Role="language" Multiplicity="1" />
+          <End Type="ModelFirst.book" Role="book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="language">
+              <PropertyRef Name="language_id" />
+            </Principal>
+            <Dependent Role="book">
+              <PropertyRef Name="language_language_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="countrylanguage">
+          <End Type="ModelFirst.country" Role="country" Multiplicity="1" />
+          <End Type="ModelFirst.language" Role="language" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="countries_id" />
+            </Principal>
+            <Dependent Role="language">
+              <PropertyRef Name="country_countries_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelFirstStoreContainer" CdmEntityContainer="ModelFirstContainer">
+    <EntitySetMapping Name="books">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.book)">
+        <MappingFragment StoreEntitySet="books">
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="book_name" ColumnName="book_name" />
+          <ScalarProperty Name="pages_count" ColumnName="pages_count" />
+          <ScalarProperty Name="author_author_id" ColumnName="author_author_id" />
+          <ScalarProperty Name="language_language_id" ColumnName="language_language_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="authors">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.author)">
+        <MappingFragment StoreEntitySet="authors">
+          <ScalarProperty Name="author_id" ColumnName="author_id" />
+          <ScalarProperty Name="author_name" ColumnName="author_name" />
+          <ScalarProperty Name="author_surname" ColumnName="author_surname" />
+          <ScalarProperty Name="age" ColumnName="age" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="languages">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.language)">
+        <MappingFragment StoreEntitySet="languages">
+          <ScalarProperty Name="language_id" ColumnName="language_id" />
+          <ScalarProperty Name="language_name" ColumnName="language_name" />
+          <ScalarProperty Name="country_countries_id" ColumnName="country_countries_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.country)">
+        <MappingFragment StoreEntitySet="countries">
+          <ScalarProperty Name="countries_id" ColumnName="countries_id" />
+          <ScalarProperty Name="country_name" ColumnName="country_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
