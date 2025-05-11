@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirstHW", "CodeFirstHW\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelFirst", "ModelFirst\ModelFirst.csproj", "{0DDD7D3A-7D75-4DA8-BEF8-5686621F4C5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data_Annotation_Fluent_API", "Data_Annotation_Fluent_API\Data_Annotation_Fluent_API.csproj", "{9D0089B7-645A-4EF4-8D1A-BC7716EAA241}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data_Annotation_Fluent_API", "Data_Annotation_Fluent_API\Data_Annotation_Fluent_API.csproj", "{9D0089B7-645A-4EF4-8D1A-BC7716EAA241}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluent_API_HW", "Fluent_API_HW\Fluent_API_HW.csproj", "{CC399DC1-FCA0-42FC-A9AE-43D33A5FDA28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluent_API_HW", "Fluent_API_HW\Fluent_API_HW.csproj", "{CC399DC1-FCA0-42FC-A9AE-43D33A5FDA28}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationComp", "Migration\MigrationComp.csproj", "{9BF10138-76C9-43A3-961A-BEE024DAAC4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{CC399DC1-FCA0-42FC-A9AE-43D33A5FDA28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC399DC1-FCA0-42FC-A9AE-43D33A5FDA28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC399DC1-FCA0-42FC-A9AE-43D33A5FDA28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BF10138-76C9-43A3-961A-BEE024DAAC4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BF10138-76C9-43A3-961A-BEE024DAAC4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BF10138-76C9-43A3-961A-BEE024DAAC4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BF10138-76C9-43A3-961A-BEE024DAAC4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
