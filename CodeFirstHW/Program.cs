@@ -16,7 +16,6 @@ namespace CodeFirstHW
                 context.SaveChanges();
             }
         }
-
         static void ShowPlaylists(MusicContext context)
         {
             var playlists = context.Playlists.Include(p => p.Tracks).ToList();
