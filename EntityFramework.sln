@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirst", "CodeFirst\CodeFirst.csproj", "{6B8DF89D-C4A6-4CB6-8B60-8BF132E20B6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirst", "CodeFirst\CodeFirst.csproj", "{6B8DF89D-C4A6-4CB6-8B60-8BF132E20B6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirstHW", "CodeFirstHW\CodeFirstHW.csproj", "{2176ED32-04BF-4D7F-B518-AB8B84BE2A84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirstHW", "CodeFirstHW\CodeFirstHW.csproj", "{2176ED32-04BF-4D7F-B518-AB8B84BE2A84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelFirst", "ModelFirst\ModelFirst.csproj", "{0DDD7D3A-7D75-4DA8-BEF8-5686621F4C5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data_Annotation_Fluent_API", "Data_Annotation_Fluent_API\Data_Annotation_Fluent_API.csproj", "{9D0089B7-645A-4EF4-8D1A-BC7716EAA241}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluent_API_HW", "Fluent_API_HW\Fluent_API_HW.csproj", "{CC399DC1-FCA0-42FC-A9AE-43D33A5FDA28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{0DDD7D3A-7D75-4DA8-BEF8-5686621F4C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DDD7D3A-7D75-4DA8-BEF8-5686621F4C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DDD7D3A-7D75-4DA8-BEF8-5686621F4C5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D0089B7-645A-4EF4-8D1A-BC7716EAA241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D0089B7-645A-4EF4-8D1A-BC7716EAA241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D0089B7-645A-4EF4-8D1A-BC7716EAA241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D0089B7-645A-4EF4-8D1A-BC7716EAA241}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC399DC1-FCA0-42FC-A9AE-43D33A5FDA28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC399DC1-FCA0-42FC-A9AE-43D33A5FDA28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC399DC1-FCA0-42FC-A9AE-43D33A5FDA28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC399DC1-FCA0-42FC-A9AE-43D33A5FDA28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
