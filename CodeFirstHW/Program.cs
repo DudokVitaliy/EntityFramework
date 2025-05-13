@@ -1,5 +1,6 @@
 ﻿using CodeFirstHW.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace CodeFirstHW
 {
@@ -71,6 +72,53 @@ namespace CodeFirstHW
                 Console.WriteLine($"#{t.Id}: {t.Name} | Album: {t.Album.Name} | Duration: {t.Duration:mm\\:ss}");
             }
         }
+        // =========================================================================================
+        public static void ShowPopularTracksInAlbum(MusicContext context, int albumId)
+        {
+            var avgListens = context.Tracks
+                .Where(t => t.AlbumId == albumId)
+                .Average(t => t.ListenCount);
+
+            var tracks = context.Tracks
+                .Where(t => t.AlbumId == albumId && t.ListenCount > avgListens)
+                .ToList();
+
+            foreach (var track in tracks)
+            {
+                Console.WriteLine($"Track: {track.Name}, Listens: {track.ListenCount}");
+            }
+        }
+        public static void ShowTop3TracksAndAlbums(MusicContext context, int artistId)
+        {
+            var topTracks = context.Tracks
+                .Where(t => t.Album.ArtistId == artistId)
+                .OrderByDescending(t => t.Rating)
+                .Take(3)
+                .ToList();
+
+            var topAlbums = context.Albums
+                .Where(a => a.ArtistId == artistId)
+                .OrderByDescending(a => a.Rating)
+                .Take(3)
+                .ToList();
+
+            Console.WriteLine("Top Tracks:");
+            topTracks.ForEach(t => Console.WriteLine($"{t.Name} - Rating: {t.Rating}"));
+
+            Console.WriteLine("Top Albums:");
+            topAlbums.ForEach(a => Console.WriteLine($"{a.Name} - Rating: {a.Rating}"));
+        }
+        public static void SearchTrack(MusicContext context, string query)
+        {
+            var results = context.Tracks
+                .Where(t => t.Name.Contains(query) || (t.Lyrics != null && t.Lyrics.Contains(query)))
+                .ToList();
+
+            foreach (var track in results)
+            {
+                Console.WriteLine($"Found: {track.Name}");
+            }
+        }
 
         static void Main(string[] args)
         {
@@ -86,6 +134,9 @@ namespace CodeFirstHW
                 Console.WriteLine("\t2. Create Playlist");
                 Console.WriteLine("\t3. Add Track to Playlist");
                 Console.WriteLine("\t4. Show All Tracks");
+                Console.WriteLine("\t5. Show Popular Tracks in Album");
+                Console.WriteLine("\t6. Show Top 3 Tracks And Albums");
+                Console.WriteLine("\t7. Search Track");
                 Console.WriteLine("\t0. Exit");
                 Console.Write("\t-> ");
 
@@ -103,6 +154,36 @@ namespace CodeFirstHW
                     case "4":
                         ShowAllTracks(context);
                         break;
+                    case "5":
+                        Console.Write("Enter album ID: ");
+                        if (int.TryParse(Console.ReadLine(), out int albumId))
+                        {
+                            ShowPopularTracksInAlbum(context, albumId);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input.");
+                        }
+                        break;
+
+                    case "6":
+                        Console.Write("Enter artist ID: ");
+                        if (int.TryParse(Console.ReadLine(), out int artistId))
+                        {
+                            ShowTop3TracksAndAlbums(context, artistId);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input.");
+                        }
+                        break;
+
+                    case "7":
+                        Console.Write("Enter search text (part of name or lyrics): ");
+                        string query = Console.ReadLine();
+                        SearchTrack(context, query);
+                        break;
+
                     case "0":
                         exit = true;
                         break;

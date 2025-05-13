@@ -17,6 +17,8 @@ namespace CodeFirstHW.Entities
         public Artist Artist { get; set; }
 
         public ICollection<Track> Tracks { get; set; }
+
+        public double Rating { get; set; }
     }
 
 }
